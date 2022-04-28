@@ -5,13 +5,14 @@ public class Estudiante {
     private String nombre;
     private String apellido;
     private int celular;
-    private boolean estudiante;
+    private String email;
+    private int codigoEstudiante;
 
-    public Estudiante(String nombre, String apellido, int celular, boolean esEstudiante) {
+    public Estudiante(String nombre, String apellido, int celular, String email) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.celular = celular;
-        this.estudiante = esEstudiante;
+        this.email = email;
     }
 
     public String getNombre() {
@@ -26,8 +27,12 @@ public class Estudiante {
         return celular;
     }
 
-    public boolean isEstudiante() {
-        return estudiante;
+    public String getEmail() {
+        return email;
+    }
+
+    public int getCodigoEstudiante() {
+        return codigoEstudiante;
     }
 
     @Override
@@ -36,7 +41,8 @@ public class Estudiante {
                 "nombre='" + nombre + '\'' +
                 ", apellido='" + apellido + '\'' +
                 ", celular=" + celular +
-                ", estudiante=" + estudiante +
+                ", email='" + email + '\'' +
+                ", codigoEstudiante=" + codigoEstudiante +
                 '}';
     }
 }
