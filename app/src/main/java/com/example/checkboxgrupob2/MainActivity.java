@@ -70,9 +70,15 @@ public class MainActivity extends AppCompatActivity {
         y cada registro que crean se es un EXTRA
         La llave debe ser una cadena STRING unica
          */
-        //Paso 1: pasar datos
-        intencion.putExtra("nombre_persona", nombre);
-        intencion.putExtra("apellido_persona", apellido);
+        //Paso 1: pasar datos primitivas
+        //intencion.putExtra("nombre_persona", nombre);
+        //intencion.putExtra("apellido_persona", apellido);
+
+        //Paso alternativo: pasar datos objeto serializado
+        //objeto Bundle entiendace como si fuera un Archivo temporal
+        Bundle archivoTemporal = new Bundle();
+        archivoTemporal.putSerializable("objeto_estudiante", estudiante);
+        intencion.putExtras(archivoTemporal);
         startActivity(intencion);
     }
 
@@ -115,15 +121,22 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void obtenerInformacion() {
+        //Forma de envio de primitivas
         nombre = etNombre.getText().toString();
         apellido = etApellido.getText().toString();
-        //String email = etEmail.getText().toString();
-        //int celular = Integer.parseInt(etCelular.getText().toString());
-        //en el switch o checbox ustedes quieren obtener el valor
-        //cuando el elemento ha sido marcado y eso es un atributo
-        //llamado checked
-        //en valores booleanos el get cambia por is por temas del ingles
-        //boolean esEstudiante = swEstudiante.isChecked();
+        //Forma de envio usando el objeto serializado
+        estudiante = new Estudiante(
+                etNombre.getText().toString(),
+                etApellido.getText().toString(),
+                Integer.parseInt(etCelular.getText().toString()),
+                etEmail.getText().toString()
+        );
+        if(swEstudiante.isChecked()) {
+            estudiante.setCodigoEstudiante(
+                    Integer.parseInt(etCodigo.getText().toString())
+            );
+        }
+
        //estudiante = new Estudiante(nombre, apellido, celular, email);
     }
 }

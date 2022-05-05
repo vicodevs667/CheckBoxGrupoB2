@@ -9,6 +9,7 @@ public class HomeActivity extends AppCompatActivity {
     private TextView txtResultado;
 
     private String nombre, apellido;
+    private Estudiante estudiante;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,9 +21,10 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void mostrarDatos() {
-        txtResultado.setText("Nombre: " + nombre  + "\n "
-                + "Apellido: " + apellido + "\n"
-        );
+        /*txtResultado.setText("Nombre: " + estudiante.getNombre()  + "\n "
+                + "Apellido: " + estudiante.getApellido() + "\n"
+        );*/
+        txtResultado.setText(estudiante.toString());
     }
 
     private void inicializarVistas() {
@@ -30,7 +32,7 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void recibirDatosPantallaA() {
-        //Paso 2: recibir los datos
+        //Paso 2: recibir los datos forma primitiva
         /*
         Para recibir los datos, las pantallas involucradas en el INTENT
         saben o conocen la referencia de este....
@@ -41,5 +43,23 @@ public class HomeActivity extends AppCompatActivity {
          */
         nombre = this.getIntent().getExtras().getString("nombre_persona","");
         apellido = this.getIntent().getExtras().getString("apellido_persona", "");
+
+        //Paso2: forma alternativa Objeto Estudiante en formato bytes
+        estudiante = (Estudiante) this.getIntent().getExtras().getSerializable("objeto_estudiante");
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,7 +1,10 @@
 package com.example.checkboxgrupob2;
 
+import java.io.Serializable;
+
 //Representacion de una clase POJO (Plain Old Java Object)
-public class Estudiante {
+//Interfaz marcador: Serializable
+public class Estudiante implements Serializable {
     private String nombre;
     private String apellido;
     private int celular;
@@ -33,6 +36,10 @@ public class Estudiante {
 
     public int getCodigoEstudiante() {
         return codigoEstudiante;
+    }
+
+    public void setCodigoEstudiante(int codigoEstudiante) {
+        this.codigoEstudiante = codigoEstudiante;
     }
 
     @Override
