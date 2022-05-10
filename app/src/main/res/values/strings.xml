@@ -7,4 +7,5 @@
     <string name="hint_codigo">Código Estudiante:</string>
     <string name="switch_estudiante">Es estudiante?</string>
     <string name="btn_registrar">Registrar</string>
+    <string name="sw_opciones">Este es el listado de opciones</string>
 </resources>
